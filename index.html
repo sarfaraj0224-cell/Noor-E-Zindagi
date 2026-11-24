@@ -1,136 +1,96 @@
 html<!DOCTYPE html>
-<html lang="hi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Noor-e-Zindagi</title>
-<link rel="manifest" href="manifest.json">
+<html lang="hi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- SEO FOR GOOGLE - NOOR-E-ZINDAGI -->
+<title>Noor-e-Zindagi - Namaz Time, Quran, Qibla, Tasbeeh, Zakat Calculator | Samastipur</title>
+<meta name="description" content="Noor-e-Zindagi - Samastipur Bihar ka No.1 Muslim App. Live Namaz Time, Azan Alarm, 114 Surah Quran, Qibla Compass, Tasbeeh Counter, Zakat Calculator. Free Download.">
+<meta name="keywords" content="Noor e Zindagi, Noor-e-Zindagi App, Namaz Time Samastipur, Azan Time, Qibla Direction, Quran 114 Surah, Tasbeeh Counter, Zakat Calculator, Muslim App, Islamic App">
+<meta name="author" content="Sarfaraj Alam - Noor-e-Zindagi">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sarfaraj0224-cell.github.io/Noor-E-Zindagi/">
+<meta property="og:title" content="Noor-e-Zindagi - Muslim Life App">
+<meta property="og:description" content="Namaz Time, Quran, Qibla, Tasbeeh, Zakat - Sab ek App me. Free.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sarfaraj0224-cell.github.io/Noor-E-Zindagi/">
+<meta property="og:site_name" content="Noor-e-Zindagi">
 <meta name="theme-color" content="#0f5d2f">
-<style>
-body{margin:0;font-family:Arial;background:#f0f4f0}
-.header{background:#0f5d2f;color:white;padding:20px;text-align:center}
-.header h1{margin:0;color:#d4af37}
-.box{background:white;margin:12px;border-radius:14px;padding:16px;box-shadow:0 2px 8px #ccc}
-.box h2{text-align:center;color:#0f5d2f;margin:0 0 10px}
-.time{display:flex;justify-content:space-between;padding:12px;border-bottom:1px solid #eee}
-.time b{color:#0f5d2f} .time.active{background:#fff8dc;border-radius:8px;border:2px solid #d4af37}
-.countdown{background:#0f5d2f;color:#d4af37;text-align:center;padding:15px;border-radius:12px;margin:12px;font-size:22px;font-weight:bold}
-.btn{width:90%;background:#0f5d2f;color:white;border:none;padding:14px;border-radius:30px;margin:8px 5%;font-size:16px}
-input{width:80%;padding:10px;margin:5px;border-radius:8px;border:1px solid #ccc}
-</style>
-</head>
-<body>
-<div class="header">
-<h1>☪️ Noor-e-Zindagi</h1>
-<p id="loc">📍 Samastipur, Bihar - Location le raha hoon...</p>
-<p id="date"></p>
+<link rel="manifest" href="manifest.json">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"Noor-e-Zindagi","operatingSystem":"Android","applicationCategory":"LifestyleApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"author":{"@type":"Person","name":"Sarfaraj Alam"}}</script>
+<!-- ADMOB - APNA ID YAHAN DALO: ca-app-pub-XXXXXXXXXXXXXXXX -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+<style>*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#eef2ee;padding-bottom:80px}.wrap{max-width:390px;margin:auto}.head{background:#0f5d2f;color:#fff;padding:16px;text-align:center;border-radius:0 0 20px 20px}.logo{width:58px;height:58px;background:#d4af37;color:#0f5d2f;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px;margin:auto;border:3px solid #fff}.head h1{margin:6px 0 2px;color:#d4af37;font-size:24px}.row{display:flex;gap:6px;justify-content:center;margin-top:8px;flex-wrap:wrap}.chip{background:#fff;color:#0f5d2f;border:none;padding:7px 10px;border-radius:20px;font-weight:700;font-size:12px}.chipG{background:#d4af37;color:#000}.card{background:#fff;margin:12px;border-radius:20px;padding:14px;box-shadow:0 4px 14px #0002}.gold{background:linear-gradient(135deg,#d4af37,#f5d76e);text-align:center}.big{font-size:32px;font-weight:900}.pray{display:flex;justify-content:space-between;padding:11px;border-bottom:1px solid #eee}.pray.active{background:#fff8dc;border:2px solid #d4af37;border-radius:10px}.pray b{color:#0f5d2f}.tgl{display:flex;justify-content:space-between;align-items:center;padding:8px 0}.tgl button{padding:7px 12px;border-radius:20px;border:1px solid #0f5d2f;background:#fff;font-size:13px}.tgl button.on{background:#0f5d2f;color:#fff}input{width:100%;padding:10px;margin:5px 0;border:1px solid #ccc;border-radius:10px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}.grid2 button{padding:11px;border-radius:12px;border:1px solid #d4af37;background:#fff;font-weight:700}.grid2 button.on{background:#0f5d2f;color:#fff}.btn{width:100%;background:#0f5d2f;color:#fff;border:none;padding:13px;border-radius:30px;margin:6px 0;font-size:15px}.btnG{background:#d4af37;color:#000}.nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;max-width:390px;margin:auto;border-top:1px solid #ddd;z-index:10}.nav button{flex:1;padding:12px 2px;border:none;background:#fff;font-size:12px}.nav button.on{color:#0f5d2f;font-weight:900;border-top:3px solid #d4af37}.tab{display:none}.tab.show{display:block}.surah{padding:10px;border-bottom:1px solid #eee;display:flex;justify-content:space-between}.compass{width:150px;height:150px;border:4px solid #d4af37;border-radius:50%;margin:10px auto;display:flex;align-items:center;justify-content:center;font-size:40px;background:#fff8dc}#toast{position:fixed;top:10px;left:50%;transform:translateX(-50%);background:#000;color:#fff;padding:10px 16px;border-radius:20px;display:none;z-index:99;font-size:14px;text-align:center;max-width:90%}#salam{position:fixed;inset:0;background:#0f5d2fd9;display:flex;align-items:center;justify-content:center;z-index:100}#salam>div{background:#fff;padding:22px;border-radius:20px;text-align:center;width:300px}.modal{position:fixed;inset:0;background:#0008;display:none;align-items:center;justify-content:center;z-index:101}.modal>div{background:#fff;padding:20px;border-radius:20px;text-align:center;width:320px;max-height:90vh;overflow:auto}.adbox{background:#f1f1f1;border:1px dashed #aaa;text-align:center;padding:10px;font-size:11px;color:#777;margin:12px;border-radius:10px}.donate{border:2px solid #0f5d2f;background:#f0fdf4}.premBadge{background:#d4af37;color:#000;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:800;display:inline-block}</style></head>
+<body><div id="toast"></div>
+<div id="salam"><div><div style="font-size:36px">☪️</div><div style="font-size:32px">السلام عليكم</div><h2>Noor-e-Zindagi</h2><p>Assalamualaikum - Welcome</p></div></div>
+<div class="modal" id="alarmModal"><div><h2>🔔 Azan / Jamaat Time!</h2><p id="alarmTxt">Namaz ka waqt ho gaya</p><button class="btn" onclick="stopAlarm()">Stop</button><button class="btn btnG" onclick="snooze()">Snooze 5 Min</button></div></div>
+<div class="modal" id="premModal"><div><h2>👑 Noor-e-Zindagi Premium</h2><p><b>Lifetime - Sirf ₹99</b></p><p style="text-align:left">✅ No Ads - Bilkul Ad Nahi<br>✅ Offline Quran Audio<br>✅ Extra Duaein & Azkar<br>✅ Priority Support<br>✅ Sadqa-e-Jariya me hissa</p><button class="btn" onclick="buyPremium()">Buy Premium ₹99 - UPI / Play</button><button class="btn btnG" onclick="closePrem()">Baad Me</button></div></div>
+<div class="modal" id="adModal"><div><h3>📢 Ad Break</h3><p>Supporting Noor-e-Zindagi (Halal Ad)</p><div style="background:#eee;padding:20px;border-radius:10px">AdMob Interstitial Ad<br><small>Halal Filtered - Gambling/Alcohol Blocked</small></div><p id="adCount">Close in 3s...</p><button class="btn" id="adCloseBtn" disabled onclick="closeAd()">Close Ad</button></div></div>
+
+<div class="wrap">
+<div class="head"><div class="logo">786</div><h1>☪️ Noor-e-Zindagi</h1><div id="premBadgeBox"></div><p>📍 Samastipur, Bihar</p><p id="coord">25.8617, 85.7784</p><div class="row"><button class="chip" onclick="showTab('home')">🌐 Language</button><button class="chip" onclick="detectLoc()">📍 Location</button><button class="chip" onclick="playSalam()">🔊 Salam</button><button class="chip chipG" onclick="openPrem()">⭐ Premium ₹99</button></div></div>
+
+<div id="tab-home" class="tab show">
+<div class="card gold"><h2>⏳ <span id="nextName">Fajr</span></h2><div class="big" id="count">00:00:00</div><p id="nextInfo">Agli Namaz ka countdown</p><p id="todayDate"></p></div>
+<div class="card"><h3>⚙️ Azan / Jamaat Setting</h3>
+<div class="tgl">Azan Time <span><button id="azanAutoBtn" class="on" onclick="setMode('azan','auto')">Auto</button> <button id="azanManBtn" onclick="setMode('azan','manual')">Manual</button></span></div>
+<div class="tgl">Jamaat Time <span><button id="jamAutoBtn" class="on" onclick="setMode('jamaat','auto')">Auto</button> <button id="jamManBtn" onclick="setMode('jamaat','manual')">Manual</button></span></div>
+<div class="tgl">Greeting <span><button id="greetOn" class="on" onclick="setGreet(true)">On</button> <button id="greetOff" onclick="setGreet(false)">Off</button></span></div>
+<div class="tgl">Azan Alarm <span><button id="alAzanOn" onclick="setAlarm('azan',true)">On</button> <button id="alAzanOff" class="on" onclick="setAlarm('azan',false)">Off</button></span></div>
+<div class="tgl">Jamaat Alarm <span><button id="alJamOn" onclick="setAlarm('jamaat',true)">On</button> <button id="alJamOff" class="on" onclick="setAlarm('jamaat',false)">Off</button></span></div>
+<div id="manualBox" style="display:none"><p><b>Manual Azan Times</b></p>Fajr <input type="time" id="mFajr" value="05:08"> Sunrise <input type="time" id="mSun" value="06:28"> Dhuhr <input type="time" id="mDhuhr" value="11:53"> Asr <input type="time" id="mAsr" value="15:08"> Maghrib <input type="time" id="mMag" value="17:03"> Isha <input type="time" id="mIsha" value="18:28"><p><b>Manual Jamaat</b></p>Fajr Jamaat <input type="time" id="jFajr" value="05:28"> Dhuhr <input type="time" id="jDhuhr" value="12:08"> Asr <input type="time" id="jAsr" value="15:23"> Maghrib <input type="time" id="jMag" value="17:08"> Isha <input type="time" id="jIsha" value="18:38"><p><b>Tahajjud Manual</b></p>Start <input type="time" id="tStart" value="01:25"> End <input type="time" id="tEnd" value="05:08"><button class="btn" onclick="saveManual()">Manual Save Karo</button></div>
+<button class="btn btnG" onclick="setMode('azan','auto');setMode('jamaat','auto')">Wapas Auto Karo</button></div>
+<div class="card"><h3>🌐 Language - 4 Bhasa</h3><div class="grid2"><button onclick="setLang('en',1)" id="l-en">English</button><button onclick="setLang('hi',1)" id="l-hi">Hindi</button><button onclick="setLang('ur',1)" id="l-ur">Urdu</button><button onclick="setLang('ar',1)" id="l-ar">Arabic</button></div><p>📍 Location</p>Lat <input id="latIn" value="25.8617"> Lng <input id="lngIn" value="85.7784"><label><input type="checkbox" id="autoUp" checked> Auto Update</label><button class="btn" onclick="saveLoc()">Location Save</button><button class="btn btnG" onclick="detectLoc()">Auto Detect GPS</button></div>
+<div class="card"><h3>🕌 Aaj Ka Namaz Time</h3><div id="prayList"></div></div>
+<div class="card donate"><h3>🤲 Is App ki Madad Karein</h3><p style="font-size:13px">Aapki madad se App free rahega, InshaAllah - Sadqa-e-Jariya</p><div class="grid2"><button onclick="donate(10)">₹10 Deo</button><button onclick="donate(50)">₹50 Deo</button><button onclick="donate(100)">₹100 Deo</button><button onclick="donate(500)">₹500 Deo</button></div><input id="customAmt" type="number" placeholder="Apni marzi ka amount"><button class="btn btnG" onclick="donate(document.getElementById('customAmt').value||10)">UPI se Donate Karo</button><p style="text-align:center;font-size:11px">UPI ID: sarfaraj0224@upi - Apna UPI yahan badlo</p></div>
 </div>
 
-<div class="countdown" id="countdown">Agli Namaz ka countdown...</div>
-
-<div class="box">
-<h2>🕌 Aaj Ka Namaz Time (Auto)</h2>
-<div id="prayers"></div>
-<p style="text-align:center;font-size:12px;color:gray">Source: Aladhan API - Automatic</p>
+<div id="tab-quran" class="tab"><div class="card"><h3>📖 Quran - 114 Surah</h3><input id="qSearch" placeholder="Surah search..." oninput="renderQuran()"><div id="qList"></div></div><div class="adbox" id="ad-quran">AdMob Banner - Halal Ad (320x50)<br>Ad ID: ca-app-pub-XXXXXXXX</div></div>
+<div id="tab-qibla" class="tab"><div class="card"><h3>🧭 Qibla Compass</h3><div class="compass" id="compass">🕋</div><p style="text-align:center">Bearing: <b id="qBear">--</b>° | Distance: <b id="qDist">--</b> km</p><p style="text-align:center" id="qDir">Qibla direction...</p><button class="btn" onclick="calcQibla()">Qibla Calculate Karo</button></div><div class="adbox" id="ad-qibla">AdMob Banner - Halal Ad</div></div>
+<div id="tab-tasbeeh" class="tab"><div class="card"><h3>📿 Tasbeeh Counter</h3><div style="text-align:center;font-size:60px;color:#0f5d2f" id="tas">0</div><p style="text-align:center" id="tasTarget">Target: 33</p><button class="btn" onclick="tasCount()">SubhanAllah - Dabao</button><div class="grid2"><button onclick="setTarget(33)">33</button><button onclick="setTarget(99)">99</button><button onclick="setTarget(100)">100</button><button onclick="tasReset()">Reset</button></div></div><div class="adbox" id="ad-tas">AdMob Banner - Halal Ad</div></div>
+<div id="tab-zakat" class="tab"><div class="card"><h3>💰 Zakat Calculator</h3>Cash <input type="number" id="zCash" placeholder="100000"> Gold <input type="number" id="zGold" placeholder="Gold value"> Other <input type="number" id="zOther" placeholder="0"><button class="btn" onclick="calcZakat()">Zakat Nikalo</button><h2 id="zRes" style="text-align:center;color:#0f5d2f"></h2></div><div class="card donate"><h3>🤲 Sadqa-e-Jariya</h3><div class="grid2"><button onclick="donate(10)">₹10</button><button onclick="donate(50)">₹50</button><button onclick="donate(100)">₹100</button><button onclick="donate(500)">₹500</button></div></div><div class="adbox" id="ad-zakat">AdMob Banner - Halal Ad</div></div>
 </div>
-
-<div class="box">
-<h2>⚙️ Manual Time Set Karo</h2>
-<div style="text-align:center">
-Fajr: <input type="time" id="fajrM"><br>
-Dhuhr: <input type="time" id="dhuhrM"><br>
-Asr: <input type="time" id="asrM"><br>
-Maghrib: <input type="time" id="maghribM"><br>
-Isha: <input type="time" id="ishaM"><br>
-<button class="btn" onclick="saveManual()">Manual Save Karo</button>
-<button class="btn" style="background:gray" onclick="useAuto()">Wapas Auto Karo</button>
-</div>
-</div>
-
-<div class="box">
-<h2>📿 Tasbeeh Counter</h2>
-<div style="text-align:center;font-size:50px;color:#0f5d2f" id="tasbeeh">0</div>
-<button class="btn" onclick="count()">SubhanAllah - Dabao</button>
-<button class="btn" style="background:#d4af37;color:black" onclick="reset()">Reset</button>
-</div>
-
+<div class="nav"><button class="on" onclick="showTab('home',this)">🏠 Home</button><button onclick="showTab('quran',this)">📖 Quran</button><button onclick="showTab('qibla',this)">🧭 Qibla</button><button onclick="showTab('tasbeeh',this)">📿 Tasbeeh</button><button onclick="showTab('zakat',this)">💰 Zakat</button></div>
 <script>
-let c=0;
-let prayerTimes = {};
-let manualMode = false;
-document.getElementById('date').innerText = new Date().toDateString();
-
-function count(){c++; document.getElementById('tasbeeh').innerText=c; localStorage.setItem('tasbeeh',c);}
-function reset(){c=0; document.getElementById('tasbeeh').innerText=0; localStorage.setItem('tasbeeh',0);}
-c = localStorage.getItem('tasbeeh') || 0; document.getElementById('tasbeeh').innerText=c;
-
-async function loadPrayer(){
-  try{
-    let lat=26.3635; let lon=85.8544;
-    if(navigator.geolocation){
-      navigator.geolocation.getCurrentPosition(async pos=>{
-        lat=pos.coords.latitude; lon=pos.coords.longitude;
-        fetchTimes(lat,lon);
-      }, ()=>fetchTimes(lat,lon));
-    } else { fetchTimes(lat,lon); }
-  }catch(e){ fetchTimes(26.3635,85.8544); }
-}
-
-async function fetchTimes(lat,lon){
-  let url = `https://api.aladhan.com/v1/timings/${new Date().toISOString().split('T')[0]}?latitude=${lat}&longitude=${lon}&method=2`;
-  let res = await fetch(url); let data = await res.json();
-  let t = data.data.timings;
-  document.getElementById('loc').innerText = `📍 Lat: ${lat.toFixed(2)} Lon: ${lon.toFixed(2)} - Auto Time`;
-  if(!manualMode){
-    prayerTimes = { Fajr: t.Fajr, Dhuhr: t.Dhuhr, Asr: t.Asr, Maghrib: t.Maghrib, Isha: t.Isha };
-    localStorage.setItem('autoTimes', JSON.stringify(prayerTimes));
-  }
-  render();
-}
-
-function render(){
-  let html='';
-  for(let k in prayerTimes){
-    html+=`<div class="time" id="row-${k}"><span>${k}</span><b>${prayerTimes[k]}</b></div>`;
-  }
-  document.getElementById('prayers').innerHTML=html;
-  startCountdown();
-}
-
-function startCountdown(){
-  setInterval(()=>{
-    let now = new Date();
-    let nextName=null; let nextTime=null; let minDiff=Infinity;
-    for(let k in prayerTimes){
-      let [h,m]=prayerTimes[k].split(':');
-      let d=new Date(); d.setHours(h); d.setMinutes(m); d.setSeconds(0);
-      let diff = d - now; if(diff<0) diff+=24*60*60*1000;
-      if(diff<minDiff){minDiff=diff; nextName=k; nextTime=d;}
-    }
-    if(nextName){
-      let hrs=Math.floor(minDiff/1000/3600); let mins=Math.floor((minDiff/1000%3600)/60); let secs=Math.floor(minDiff/1000%60);
-      document.getElementById('countdown').innerHTML=`⏳ Agli Namaz: ${nextName} - ${hrs}h ${mins}m ${secs}s me`;
-      document.querySelectorAll('.time').forEach(el=>el.classList.remove('active'));
-      let active=document.getElementById(`row-${nextName}`); if(active) active.classList.add('active');
-    }
-  },1000);
-}
-
-function saveManual(){
-  prayerTimes={
-    Fajr: document.getElementById('fajrM').value || prayerTimes.Fajr,
-    Dhuhr: document.getElementById('dhuhrM').value || prayerTimes.Dhuhr,
-    Asr: document.getElementById('asrM').value || prayerTimes.Asr,
-    Maghrib: document.getElementById('maghribM').value || prayerTimes.Maghrib,
-    Isha: document.getElementById('ishaM').value || prayerTimes.Isha,
-  };
-  manualMode=true; localStorage.setItem('manualTimes',JSON.stringify(prayerTimes));
-  localStorage.setItem('manualMode','1'); render(); alert('Manual Time Save Ho Gaya!');
-}
-function useAuto(){ manualMode=false; localStorage.removeItem('manualMode'); loadPrayer(); alert('Wapas Auto Mode!'); }
-
-let savedManual = localStorage.getItem('manualMode');
-if(savedManual){ prayerTimes=JSON.parse(localStorage.getItem('manualTimes')); manualMode=true; render(); } else { loadPrayer(); }
-</script>
-</body>
-</html>
+let lang='hi', lat=25.8617, lng=85.7784, azanMode='auto', jamMode='auto', greet=true, alAzan=false, alJam=false, tas=0, target=33, snoozed=0, premium=localStorage.getItem('premium')=='1', clicks=0;
+let azan={Fajr:'05:08',Sunrise:'06:28',Ishraq:'06:43',Chasht:'07:30',Dhuhr:'11:53',Asr:'15:08',Maghrib:'17:03',Isha:'18:28'};
+let jamaat={Fajr:'05:28',Dhuhr:'12:08',Asr:'15:23',Maghrib:'17:08',Isha:'18:38'};
+let tahaj={start:'01:25',end:'05:08'};
+function toast(m){let t=document.getElementById('toast');t.innerText=m;t.style.display='block';setTimeout(()=>t.style.display='none',3000)}
+function speak(txt){try{let u=new SpeechSynthesisUtterance(txt);u.lang=lang=='ar'?'ar-SA':lang=='ur'?'ur-PK':lang=='hi'?'hi-IN':'en-US';speechSynthesis.speak(u)}catch(e){}}
+function playSalam(){speak('Assalamualaikum');toast('Salam - Noor-e-Zindagi')}
+function updatePremiumUI(){if(premium){document.getElementById('premBadgeBox').innerHTML='<span class="premBadge">👑 Premium User</span>';document.querySelectorAll('.adbox').forEach(e=>e.style.display='none')}else{document.getElementById('premBadgeBox').innerHTML='';document.querySelectorAll('.adbox').forEach(e=>e.style.display='block')}}
+function openPrem(){document.getElementById('premModal').style.display='flex'}function closePrem(){document.getElementById('premModal').style.display='none'}
+function buyPremium(){premium=true;localStorage.setItem('premium','1');updatePremiumUI();closePrem();toast('MashaAllah! Premium Active - JazakAllah');speak('MashaAllah')}
+function donate(amt){let upi='upi://pay?pa=sarfaraj0224@upi&pn=Noor-e-Zindagi&am='+amt+'&cu=INR&tn=Sadqa-e-Jariya';window.location.href=upi;toast('JazakAllahu Khairan! Allah aapko jaza de - ₹'+amt)}
+function maybeShowAd(){if(premium)return;clicks++;if(clicks%3==0){document.getElementById('adModal').style.display='flex';let c=3;document.getElementById('adCloseBtn').disabled=true;let iv=setInterval(()=>{c--;document.getElementById('adCount').innerText='Close in '+c+'s...';if(c<=0){clearInterval(iv);document.getElementById('adCloseBtn').disabled=false;document.getElementById('adCount').innerText='Ad khatam - Close dabao'}},1000)}}
+function closeAd(){document.getElementById('adModal').style.display='none'}
+function setGreet(v){greet=v;document.getElementById('greetOn').className=v?'on':'';document.getElementById('greetOff').className=!v?'on':'';localStorage.setItem('greet',v)}
+function setLang(l,man){lang=l;['en','hi','ur','ar'].forEach(x=>document.getElementById('l-'+x).className=x==l?'on':'');localStorage.setItem('lang',l);if(man){toast('Language auto set to '+l);speak('Assalamualaikum')}}
+function setMode(type,m){if(type=='azan'){azanMode=m;document.getElementById('azanAutoBtn').className=m=='auto'?'on':'';document.getElementById('azanManBtn').className=m=='manual'?'on':''}else{jamMode=m;document.getElementById('jamAutoBtn').className=m=='auto'?'on':'';document.getElementById('jamManBtn').className=m=='manual'?'on':''}document.getElementById('manualBox').style.display=(azanMode=='manual'||jamMode=='manual')?'block':'none';localStorage.setItem(type+'Mode',m);if(m=='auto')loadTimes();else renderPray()}
+function saveManual(){azan.Fajr=document.getElementById('mFajr').value;azan.Sunrise=document.getElementById('mSun').value;azan.Dhuhr=document.getElementById('mDhuhr').value;azan.Asr=document.getElementById('mAsr').value;azan.Maghrib=document.getElementById('mMag').value;azan.Isha=document.getElementById('mIsha').value;jamaat.Fajr=document.getElementById('jFajr').value;jamaat.Dhuhr=document.getElementById('jDhuhr').value;jamaat.Asr=document.getElementById('jAsr').value;jamaat.Maghrib=document.getElementById('jMag').value;jamaat.Isha=document.getElementById('jIsha').value;tahaj.start=document.getElementById('tStart').value;tahaj.end=document.getElementById('tEnd').value;localStorage.setItem('azan',JSON.stringify(azan));localStorage.setItem('jamaat',JSON.stringify(jamaat));localStorage.setItem('tahaj',JSON.stringify(tahaj));renderPray();toast('Manual Save Ho Gaya!')}
+function saveLoc(){lat=parseFloat(document.getElementById('latIn').value)||25.8617;lng=parseFloat(document.getElementById('lngIn').value)||85.7784;document.getElementById('coord').innerText=lat+', '+lng;localStorage.setItem('lat',lat);localStorage.setItem('lng',lng);calcQibla();loadTimes();toast('Location Save!')}
+function detectLoc(){if(navigator.geolocation){navigator.geolocation.getCurrentPosition(p=>{lat=p.coords.latitude;lng=p.coords.longitude;document.getElementById('latIn').value=lat;document.getElementById('lngIn').value=lng;saveLoc();toast('GPS Location Mil Gayi!')},()=>toast('GPS nahi mila'))}else toast('GPS support nahi hai')}
+async function loadTimes(){try{let d=new Date().toISOString().split('T')[0];let r=await fetch(`https://api.aladhan.com/v1/timings/${d}?latitude=${lat}&longitude=${lng}&method=1`);let j=await r.json();let t=j.data.timings;if(azanMode=='auto'){azan={Fajr:t.Fajr.slice(0,5),Sunrise:t.Sunrise.slice(0,5),Ishraq:'06:43',Chasht:'07:30',Dhuhr:t.Dhuhr.slice(0,5),Asr:t.Asr.slice(0,5),Maghrib:t.Maghrib.slice(0,5),Isha:t.Isha.slice(0,5)};let toMin=s=>{let[a,b]=s.split(':');return +a*60+ +b};let fmt=m=>String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');if(jamMode=='auto'){jamaat={Fajr:fmt(toMin(azan.Fajr)+20),Dhuhr:fmt(toMin(azan.Dhuhr)+15),Asr:fmt(toMin(azan.Asr)+15),Maghrib:fmt(toMin(azan.Maghrib)+5),Isha:fmt(toMin(azan.Isha)+10)}};tahaj={start:'01:25',end:azan.Fajr}}renderPray()}catch(e){renderPray()}}
+function renderPray(){let list=[['Fajr',azan.Fajr,jamaat.Fajr],['Sunrise',azan.Sunrise,'-'],['Ishraq',azan.Ishraq,'-'],['Chasht',azan.Chasht,'-'],['Dhuhr',azan.Dhuhr,jamaat.Dhuhr],['Asr',azan.Asr,jamaat.Asr],['Maghrib',azan.Maghrib,jamaat.Maghrib],['Isha',azan.Isha,jamaat.Isha],['Tahajjud',tahaj.start+' - '+tahaj.end,'-']];document.getElementById('prayList').innerHTML=list.map(x=>`<div class="pray" id="row-${x[0]}"><span>🕌 ${x[0]}</span><span>Azan <b>${x[1]}</b> | Jamaat <b>${x[2]}</b></span></div>`).join('')}
+function tick(){let now=new Date();let order=['Fajr','Dhuhr','Asr','Maghrib','Isha'];let next=null,diff=1e12;for(let n of order){let[h,m]=azan[n].split(':');let d=new Date();d.setHours(h,m,0,0);let df=d-now;if(df<0)df+=86400000;if(df<diff){diff=df;next=n}}let h=Math.floor(diff/3600000),mi=Math.floor(diff%3600000/60000),s=Math.floor(diff%60000/1000);document.getElementById('count').innerText=`${String(h).padStart(2,'0')}:${String(mi).padStart(2,'0')}:${String(s).padStart(2,'0')}`;document.getElementById('nextName').innerText=next;document.getElementById('nextInfo').innerText=`Agli Namaz: ${next} - Azan ${azan[next]} | Jamaat ${jamaat[next]||'-'}`;document.querySelectorAll('.pray').forEach(e=>e.classList.remove('active'));let r=document.getElementById('row-'+next);if(r)r.classList.add('active')}
+setInterval(tick,1000);
+function showTab(t,btn){['home','quran','qibla','tasbeeh','zakat'].forEach(x=>document.getElementById('tab-'+x).classList.remove('show'));document.getElementById('tab-'+t).classList.add('show');document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('on'));if(btn)btn.classList.add('on');maybeShowAd();if(t=='qibla')calcQibla();if(t=='quran')renderQuran()}
+let surahs=['Al-Fatiha','Al-Baqarah','Aal-e-Imran','An-Nisa','Al-Maidah','Al-Anam','Al-Araf','Al-Anfal','At-Tawba','Yunus','Hud','Yusuf','Ar-Rad','Ibrahim','Al-Hijr','An-Nahl','Al-Isra','Al-Kahf','Maryam','Taha','Al-Anbiya','Al-Hajj','Al-Muminun','An-Nur','Al-Furqan','Ash-Shuara','An-Naml','Al-Qasas','Al-Ankabut','Ar-Rum','Luqman','As-Sajda','Al-Ahzab','Saba','Fatir','Ya-Sin','As-Saffat','Sad','Az-Zumar','Ghafir','Fussilat','Ash-Shura','Az-Zukhruf','Ad-Dukhan','Al-Jathiya','Al-Ahqaf','Muhammad','Al-Fath','Al-Hujurat','Qaf','Adh-Dhariyat','At-Tur','An-Najm','Al-Qamar','Ar-Rahman','Al-Waqia','Al-Hadid','Al-Mujadila','Al-Hashr','Al-Mumtahina','As-Saff','Al-Jumua','Al-Munafiqun','At-Taghabun','At-Talaq','At-Tahrim','Al-Mulk','Al-Qalam','Al-Haqqa','Al-Maarij','Nuh','Al-Jinn','Al-Muzzammil','Al-Muddaththir','Al-Qiyama','Al-Insan','Al-Mursalat','An-Naba','An-Naziat','Abasa','At-Takwir','Al-Infitar','Al-Mutaffifin','Al-Inshiqaq','Al-Buruj','At-Tariq','Al-Ala','Al-Ghashiya','Al-Fajr','Al-Balad','Ash-Shams','Al-Lail','Ad-Duha','Ash-Sharh','At-Tin','Al-Alaq','Al-Qadr','Al-Bayyina','Az-Zalzala','Al-Adiyat','Al-Qaria','At-Takathur','Al-Asr','Al-Humaza','Al-Fil','Quraysh','Al-Maun','Al-Kawthar','Al-Kafirun','An-Nasr','Al-Masad','Al-Ikhlas','Al-Falaq','An-Nas'];
+function renderQuran(){let q=(document.getElementById('qSearch').value||'').toLowerCase();document.getElementById('qList').innerHTML=surahs.map((s,i)=>`<div class="surah"><span>${i+1}. ${s}</span><span>📖</span></div>`).filter((_,i)=>surahs[i].toLowerCase().includes(q)).join('')}
+function calcQibla(){let lat1=lat*Math.PI/180,lon1=lng*Math.PI/180,lat2=21.3891*Math.PI/180,lon2=39.8579*Math.PI/180;let dLon=lon2-lon1;let y=Math.sin(dLon)*Math.cos(lat2);let x=Math.cos(lat1)*Math.sin(lat2)-Math.sin(lat1)*Math.cos(lat2)*Math.cos(dLon);let br=(Math.atan2(y,x)*180/Math.PI+360)%360;let R=6371;let dLat=lat2-lat1;let a=Math.sin(dLat/2)**2+Math.cos(lat1)*Math.cos(lat2)*Math.sin(dLon/2)**2;let dist=2*R*Math.asin(Math.sqrt(a));document.getElementById('qBear').innerText=br.toFixed(1);document.getElementById('qDist').innerText=dist.toFixed(0);document.getElementById('qDir').innerText=br>180?'Qibla West me hai':'Qibla North-West me hai';return br}
+function tasCount(){tas++;document.getElementById('tas').innerText=tas;if(navigator.vibrate)navigator.vibrate(20);if(tas>=target){toast('MashaAllah! '+target+' pura!');speak('MashaAllah')}}
+function setTarget(n){target=n;document.getElementById('tasTarget').innerText='Target: '+n;tas=0;document.getElementById('tas').innerText=0}
+function tasReset(){tas=0;document.getElementById('tas').innerText=0}
+function calcZakat(){let tot=(+document.getElementById('zCash').value||0)+(+document.getElementById('zGold').value||0)+(+document.getElementById('zOther').value||0);let z=tot*0.025;document.getElementById('zRes').innerText=tot<50000?'Nisab se kam - Zakat nahi':'Zakat: ₹'+z.toFixed(0)}
+function setAlarm(t,v){if(t=='azan'){alAzan=v;document.getElementById('alAzanOn').className=v?'on':'';document.getElementById('alAzanOff').className=!v?'on':''}else{alJam=v;document.getElementById('alJamOn').className=v?'on':'';document.getElementById('alJamOff').className=!v?'on':''}if(v&&Notification&&Notification.permission!='granted')Notification.requestPermission();localStorage.setItem('al'+t,v)}
+function checkAlarm(){if(snoozed>Date.now())return;let now=new Date();let hm=String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');for(let k in azan){if(azan[k]==hm&&alAzan){showAlarm('Azan Time - '+k)}}for(let k in jamaat){if(jamaat[k]==hm&&alJam){showAlarm('Jamaat Time - '+k)}}}
+function showAlarm(t){document.getElementById('alarmTxt').innerText=t;document.getElementById('alarmModal').style.display='flex';try{let a=new Audio('https://www.soundjay.com/buttons/sounds/beep-01a.mp3');a.play()}catch(e){}if(Notification&&Notification.permission=='granted')new Notification(t)}
+function stopAlarm(){document.getElementById('alarmModal').style.display='none'}
+function snooze(){snoozed=Date.now()+5*60000;stopAlarm();toast('Snooze 5 Min')}
+setInterval(checkAlarm,10000);
+document.getElementById('todayDate').innerText=new Date().toDateString();
+let sl=localStorage.getItem('lang');if(sl)setLang(sl,0);let svLat=localStorage.getItem('lat');if(svLat){lat=+svLat;lng=+localStorage.getItem('lng');document.getElementById('latIn').value=lat;document.getElementById('lngIn').value=lng;document.getElementById('coord').innerText=lat+', '+lng}
+fetch('https://ipapi.co/json/').then(r=>r.json()).then(d=>{let c=(d.country||'IN');let m={IN:'hi',PK:'ur',SA:'ar',AE:'ar',QA:'ar',US:'en',GB:'en'};if(m[c]&&!localStorage.getItem('lang')){setLang(m[c],0);toast('Language auto set to '+m[c])}}).catch(()=>{});
+if(localStorage.getItem('azan')){azan=JSON.parse(localStorage.getItem('azan'));jamaat=JSON.parse(localStorage.getItem('jamaat')||JSON.stringify(jamaat));tahaj=JSON.parse(localStorage.getItem('tahaj')||JSON.stringify(tahaj))}
+loadTimes();renderPray();renderQuran();calcQibla();updatePremiumUI();
+if(greet){setTimeout(()=>{document.getElementById('salam').style.display='none';playSalam()},2000)}else{document.getElementById('salam').style.display='none'}
+document.getElementById('salam').onclick=()=>document.getElementById('salam').style.display='none';
+</script></body></html>
