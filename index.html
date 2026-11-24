@@ -7,63 +7,130 @@ html<!DOCTYPE html>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0f5d2f">
 <style>
-body{margin:0;font-family:Arial;background:#f5f5f0;text-align:center}
-.header{background:#0f5d2f;color:white;padding:25px 10px}
-.header h1{margin:0;font-size:30px;color:#d4af37}
-.header p{margin:5px;color:#fff}
-.box{background:white;margin:15px;border-radius:15px;padding:20px;box-shadow:0 2px 10px #ddd}
-.box h2{color:#0f5d2f;margin:0 0 15px}
-.time{display:flex;justify-content:space-between;padding:12px;border-bottom:1px solid #eee;font-size:18px}
-.time b{color:#0f5d2f}
-.time.active{background:#fff8dc;border-radius:10px}
-.btn{background:#0f5d2f;color:white;border:none;padding:15px 30px;font-size:18px;border-radius:30px;margin:10px;cursor:pointer;width:80%}
-.btn-gold{background:#d4af37;color:#000}
-#tasbeeh{font-size:60px;color:#0f5d2f;margin:10px}
-.footer{padding:20px;color:#888;font-size:13px}
+body{margin:0;font-family:Arial;background:#f0f4f0}
+.header{background:#0f5d2f;color:white;padding:20px;text-align:center}
+.header h1{margin:0;color:#d4af37}
+.box{background:white;margin:12px;border-radius:14px;padding:16px;box-shadow:0 2px 8px #ccc}
+.box h2{text-align:center;color:#0f5d2f;margin:0 0 10px}
+.time{display:flex;justify-content:space-between;padding:12px;border-bottom:1px solid #eee}
+.time b{color:#0f5d2f} .time.active{background:#fff8dc;border-radius:8px;border:2px solid #d4af37}
+.countdown{background:#0f5d2f;color:#d4af37;text-align:center;padding:15px;border-radius:12px;margin:12px;font-size:22px;font-weight:bold}
+.btn{width:90%;background:#0f5d2f;color:white;border:none;padding:14px;border-radius:30px;margin:8px 5%;font-size:16px}
+input{width:80%;padding:10px;margin:5px;border-radius:8px;border:1px solid #ccc}
 </style>
 </head>
 <body>
 <div class="header">
 <h1>☪️ Noor-e-Zindagi</h1>
-<p>Samastipur, Bihar</p>
+<p id="loc">📍 Samastipur, Bihar - Location le raha hoon...</p>
 <p id="date"></p>
 </div>
 
+<div class="countdown" id="countdown">Agli Namaz ka countdown...</div>
+
 <div class="box">
-<h2>🕌 Aaj Ka Namaz Time</h2>
-<div class="time"><span>🌅 Fajr</span><b>05:05 AM</b></div>
-<div class="time active"><span>☀️ Dhuhr</span><b>12:05 PM</b></div>
-<div class="time"><span>🌤️ Asr</span><b>03:30 PM</b></div>
-<div class="time"><span>🌇 Maghrib</span><b>05:35 PM</b></div>
-<div class="time"><span>🌙 Isha</span><b>07:00 PM</b></div>
+<h2>🕌 Aaj Ka Namaz Time (Auto)</h2>
+<div id="prayers"></div>
+<p style="text-align:center;font-size:12px;color:gray">Source: Aladhan API - Automatic</p>
+</div>
+
+<div class="box">
+<h2>⚙️ Manual Time Set Karo</h2>
+<div style="text-align:center">
+Fajr: <input type="time" id="fajrM"><br>
+Dhuhr: <input type="time" id="dhuhrM"><br>
+Asr: <input type="time" id="asrM"><br>
+Maghrib: <input type="time" id="maghribM"><br>
+Isha: <input type="time" id="ishaM"><br>
+<button class="btn" onclick="saveManual()">Manual Save Karo</button>
+<button class="btn" style="background:gray" onclick="useAuto()">Wapas Auto Karo</button>
+</div>
 </div>
 
 <div class="box">
 <h2>📿 Tasbeeh Counter</h2>
-<div id="tasbeeh">0</div>
+<div style="text-align:center;font-size:50px;color:#0f5d2f" id="tasbeeh">0</div>
 <button class="btn" onclick="count()">SubhanAllah - Dabao</button>
-<button class="btn btn-gold" onclick="reset()">Reset Karo</button>
+<button class="btn" style="background:#d4af37;color:black" onclick="reset()">Reset</button>
 </div>
-
-<div class="box">
-<h2>🧭 Qibla Direction</h2>
-<p>Makkah - 259° West</p>
-<button class="btn" onclick="alert('Qibla: Apne phone ko West disha me rakho')">Qibla Dekho</button>
-</div>
-
-<div class="box">
-<h2>📖 Aaj Ki Dua</h2>
-<p><b>"Allahumma inni as'aluka ilman nafi'an"</b></p>
-<p>Aye Allah! Mujhe faydemand ilm de.</p>
-</div>
-
-<div class="footer">Made with ❤️ by Sarfaraj Alam<br>Samastipur, Bihar</div>
 
 <script>
 let c=0;
-function count(){c++; document.getElementById('tasbeeh').innerText=c;}
-function reset(){c=0; document.getElementById('tasbeeh').innerText=0;}
+let prayerTimes = {};
+let manualMode = false;
 document.getElementById('date').innerText = new Date().toDateString();
+
+function count(){c++; document.getElementById('tasbeeh').innerText=c; localStorage.setItem('tasbeeh',c);}
+function reset(){c=0; document.getElementById('tasbeeh').innerText=0; localStorage.setItem('tasbeeh',0);}
+c = localStorage.getItem('tasbeeh') || 0; document.getElementById('tasbeeh').innerText=c;
+
+async function loadPrayer(){
+  try{
+    let lat=26.3635; let lon=85.8544;
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(async pos=>{
+        lat=pos.coords.latitude; lon=pos.coords.longitude;
+        fetchTimes(lat,lon);
+      }, ()=>fetchTimes(lat,lon));
+    } else { fetchTimes(lat,lon); }
+  }catch(e){ fetchTimes(26.3635,85.8544); }
+}
+
+async function fetchTimes(lat,lon){
+  let url = `https://api.aladhan.com/v1/timings/${new Date().toISOString().split('T')[0]}?latitude=${lat}&longitude=${lon}&method=2`;
+  let res = await fetch(url); let data = await res.json();
+  let t = data.data.timings;
+  document.getElementById('loc').innerText = `📍 Lat: ${lat.toFixed(2)} Lon: ${lon.toFixed(2)} - Auto Time`;
+  if(!manualMode){
+    prayerTimes = { Fajr: t.Fajr, Dhuhr: t.Dhuhr, Asr: t.Asr, Maghrib: t.Maghrib, Isha: t.Isha };
+    localStorage.setItem('autoTimes', JSON.stringify(prayerTimes));
+  }
+  render();
+}
+
+function render(){
+  let html='';
+  for(let k in prayerTimes){
+    html+=`<div class="time" id="row-${k}"><span>${k}</span><b>${prayerTimes[k]}</b></div>`;
+  }
+  document.getElementById('prayers').innerHTML=html;
+  startCountdown();
+}
+
+function startCountdown(){
+  setInterval(()=>{
+    let now = new Date();
+    let nextName=null; let nextTime=null; let minDiff=Infinity;
+    for(let k in prayerTimes){
+      let [h,m]=prayerTimes[k].split(':');
+      let d=new Date(); d.setHours(h); d.setMinutes(m); d.setSeconds(0);
+      let diff = d - now; if(diff<0) diff+=24*60*60*1000;
+      if(diff<minDiff){minDiff=diff; nextName=k; nextTime=d;}
+    }
+    if(nextName){
+      let hrs=Math.floor(minDiff/1000/3600); let mins=Math.floor((minDiff/1000%3600)/60); let secs=Math.floor(minDiff/1000%60);
+      document.getElementById('countdown').innerHTML=`⏳ Agli Namaz: ${nextName} - ${hrs}h ${mins}m ${secs}s me`;
+      document.querySelectorAll('.time').forEach(el=>el.classList.remove('active'));
+      let active=document.getElementById(`row-${nextName}`); if(active) active.classList.add('active');
+    }
+  },1000);
+}
+
+function saveManual(){
+  prayerTimes={
+    Fajr: document.getElementById('fajrM').value || prayerTimes.Fajr,
+    Dhuhr: document.getElementById('dhuhrM').value || prayerTimes.Dhuhr,
+    Asr: document.getElementById('asrM').value || prayerTimes.Asr,
+    Maghrib: document.getElementById('maghribM').value || prayerTimes.Maghrib,
+    Isha: document.getElementById('ishaM').value || prayerTimes.Isha,
+  };
+  manualMode=true; localStorage.setItem('manualTimes',JSON.stringify(prayerTimes));
+  localStorage.setItem('manualMode','1'); render(); alert('Manual Time Save Ho Gaya!');
+}
+function useAuto(){ manualMode=false; localStorage.removeItem('manualMode'); loadPrayer(); alert('Wapas Auto Mode!'); }
+
+let savedManual = localStorage.getItem('manualMode');
+if(savedManual){ prayerTimes=JSON.parse(localStorage.getItem('manualTimes')); manualMode=true; render(); } else { loadPrayer(); }
 </script>
 </body>
 </html>
